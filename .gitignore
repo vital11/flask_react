@@ -161,6 +161,8 @@ pnpm-debug.log*
 
 # Editor directories and files
 .idea
+.idea/
+..idea/
 .vscode
 *.suo
 *.ntvs*
@@ -169,7 +171,7 @@ pnpm-debug.log*
 *.sw?
 
 
-.idea/
+
 /env/
 /.env
 /alembic/versions/*
