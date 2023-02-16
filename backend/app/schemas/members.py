@@ -22,6 +22,11 @@ class MemberCreate(MemberBase):
     role: MemberRoles
 
 
+class MemberDelete(MemberCreate):
+    """Properties to receive via API on delete"""
+    pass
+
+
 class MemberInDBBase(MemberBase):
     """Properties shared by models stored in DB"""
     membership_id: Optional[int] = None
