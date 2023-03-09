@@ -12,14 +12,13 @@ class MemberBase(BaseModel):
     """Shared properties"""
     user_id: Optional[int] = None
     group_id: Optional[int] = None
-    role: Optional[MemberRoles] = None
+    role: Optional[MemberRoles] = MemberRoles.MEMBER
 
 
 class MemberCreate(MemberBase):
     """Properties to receive via API on creation"""
     user_id: int
     group_id: int
-    role: MemberRoles
 
 
 class MemberDelete(MemberCreate):

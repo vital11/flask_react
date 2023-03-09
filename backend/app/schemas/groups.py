@@ -4,8 +4,8 @@ from pydantic import BaseModel, constr, validator
 
 class GroupBase(BaseModel):
     """Shared properties"""
-    group_name: Optional[str] = None
-    group_description: Optional[str] = None
+    group_name: Optional[constr(max_length=100)] = None
+    group_description: Optional[constr(max_length=500)] = None
     is_private: Optional[bool] = False
     owner_id: Optional[int]
 
