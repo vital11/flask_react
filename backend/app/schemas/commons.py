@@ -1,8 +1,6 @@
-from typing import Optional
-
 from pydantic import BaseModel
 
 
 class Pagination(BaseModel):
-    skip: Optional[int] = None
-    limit: Optional[int] = None
+    skip: int = 0
+    limit: int = 10

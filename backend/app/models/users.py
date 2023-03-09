@@ -2,16 +2,18 @@ from typing import Optional
 from sqlalchemy import String, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from app.database import Base
+from app.db.base_class import Base
+from app.models.groups import Group
+from app.models.members import Member
 
 
 class User(Base):
     __tablename__ = 'users'
 
     user_id: Mapped[int] = mapped_column(primary_key=True)
-    user_email: Mapped[str] = mapped_column(String(50), unique=True, index=True)
+    user_email: Mapped[str] = mapped_column(String(50), unique=True, index=True, nullable=False)
     user_name: Mapped[Optional[str]] = mapped_column(String(50))
-    hashed_password: Mapped[str]
+    hashed_password: Mapped[str] = mapped_column(String(), nullable=False)
 
     contacts: Mapped['Contact'] = relationship(
         back_populates='user',
@@ -24,7 +26,7 @@ class User(Base):
     )
 
     member_groups: Mapped[list['Member']] = relationship(
-        back_populates='members',
+        back_populates='member',
         cascade='all, delete'
     )
 
